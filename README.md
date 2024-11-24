@@ -98,8 +98,8 @@ This project provides a **Graphical User Interface (GUI)** for managing and inte
 
 2. Compile and run the application:
    ```bash
-   javac DataStructureGUI.java
-   java DataStructureGUI
+   javac project_name.java
+   java project_name
 
 ## UI Controls
 
