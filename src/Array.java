@@ -79,7 +79,7 @@ public class Array extends JFrame {
 		
 		JButton btnNewButton = new JButton("Create");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(599, 159, 107, 33);
+		btnNewButton.setBounds(599, 151, 107, 48);
 		contentPane.add(btnNewButton);
 		
 		btnNewButton.addActionListener(new ActionListener() {
@@ -111,7 +111,7 @@ public class Array extends JFrame {
 		
 		JButton btnNewButton_1 = new JButton("Insert");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(599, 243, 107, 33);
+		btnNewButton_1.setBounds(599, 235, 107, 49);
 		contentPane.add(btnNewButton_1);
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -142,7 +142,7 @@ public class Array extends JFrame {
 		
 		JButton btnNewButton_2 = new JButton("Delete");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_2.setBounds(599, 339, 107, 33);
+		btnNewButton_2.setBounds(599, 330, 107, 48);
 		contentPane.add(btnNewButton_2);
 		
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -167,7 +167,7 @@ public class Array extends JFrame {
 		
 		JButton btnNewButton_1_1 = new JButton("Display");
 		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1_1.setBounds(599, 434, 107, 33);
+		btnNewButton_1_1.setBounds(599, 434, 107, 45);
 		contentPane.add(btnNewButton_1_1);
 		
 		btnNewButton_1_1.addActionListener(new ActionListener() {
@@ -218,7 +218,7 @@ public class Array extends JFrame {
 	    }
 		
 		if (position < 0 || position > arr.length) {
-	        JOptionPane.showMessageDialog(this, "Invalid position. Please enter a position between 1 and " + arr.length + ".", "Error", JOptionPane.ERROR_MESSAGE);
+	        JOptionPane.showMessageDialog(this, "Invalid position. Please enter a position between 0 and " + arr.length + ".", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		

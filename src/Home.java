@@ -81,10 +81,28 @@ public class Home extends JFrame {
 		btnNewButton_1.setBounds(462, 129, 236, 83);
 		contentPane.add(btnNewButton_1);
 		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				Open the Array window
+				Stack stack = new Stack();
+				stack.setVisible(true);
+			}
+		});
+		
 		JButton btnNewButton_2 = new JButton("Queue");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_2.setBounds(74, 285, 236, 83);
 		contentPane.add(btnNewButton_2);
+		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				Open the Array window
+				Queue queue = new Queue();
+				queue.setVisible(true);
+			}
+		});
 		
 		JButton btnCircularQueue = new JButton("<html><div align='center'>Circular<br> Queue</div></html>");
 		btnCircularQueue.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -92,6 +110,15 @@ public class Home extends JFrame {
 		btnCircularQueue.setHorizontalAlignment(SwingConstants.CENTER);  // Center horizontally
 		btnCircularQueue.setVerticalAlignment(SwingConstants.CENTER); 
 		contentPane.add(btnCircularQueue);
+		
+		btnCircularQueue.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				Open the Array window
+				CircularQueue circularQueue = new CircularQueue();
+				circularQueue.setVisible(true);
+			}
+		});
 		
 		JButton btnSingleLinkedlist = new JButton("<html><div align='center'>Singly<br> Linked<br> List</div></html>");
 		btnSingleLinkedlist.setFont(new Font("Tahoma", Font.PLAIN, 20));
