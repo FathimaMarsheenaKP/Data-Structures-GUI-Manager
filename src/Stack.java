@@ -55,7 +55,7 @@ public class Stack extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\Downloads\\output-onlinepngtools (7).png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\stack.png"));
 		lblNewLabel.setBounds(0, -10, 773, 640);
 		contentPane.add(lblNewLabel);
 		
@@ -198,6 +198,10 @@ public class Stack extends JFrame {
 	
 	private void createStack(int size) {
 		try {
+			if (!isNull()) {
+	            JOptionPane.showMessageDialog(this, "Stack already exists! Please delete the existing stack to create a new one.", "Error", JOptionPane.ERROR_MESSAGE);
+	            return;
+	        }
 			size = Integer.parseInt(textField_size.getText().trim());
 			this.size = size;
 			// Validate the size
@@ -215,11 +219,11 @@ public class Stack extends JFrame {
 	}
 	
 	private void push(int element) {
-		if (stack == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Stack is not created yet. Please create stack first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
-		if (top == size - 1) {
+		if (isFull()) {
 			JOptionPane.showMessageDialog(this, "Stack is full!", "Info", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
@@ -230,12 +234,12 @@ public class Stack extends JFrame {
 	}
 	
 	private void pop() {
-		if (stack == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Stack is not created yet. Please create stack first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		
-		if (top == -1) {
+		if (isEmpty()) {
 			JOptionPane.showMessageDialog(this, "Stack is empty!", "Info", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
@@ -247,12 +251,12 @@ public class Stack extends JFrame {
 	
 	private void getElement(int index) {
 		int count = -1;
-		if (stack == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Stack is not created yet. Please create an Stack first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		
-		if (top == -1) {
+		if (isEmpty()) {
 	        JOptionPane.showMessageDialog(this, "Stack is empty!", "Info", JOptionPane.INFORMATION_MESSAGE);
 	        return;
 	    }
@@ -270,12 +274,12 @@ public class Stack extends JFrame {
 	}
 	
 	private void display() {
-		if (stack == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Stack is not created yet. Please create an Stack first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		
-		if (top == -1) {
+		if (isEmpty()) {
 			textField_display.setText("");
 	        JOptionPane.showMessageDialog(this, "Stack is empty!", "Info", JOptionPane.INFORMATION_MESSAGE);
 	        return;
@@ -287,6 +291,18 @@ public class Stack extends JFrame {
 	        stackContent.append(stack[i]).append(" ");
 	    }
 	    textField_display.setText(stackContent.toString());
+	}
+	
+	private boolean isNull() {
+		return stack == null;
+	}
+	
+	private boolean isFull() {
+		return top == size -1;
+	}
+	
+	private boolean isEmpty() {
+		return top == -1;
 	}
 	
 }

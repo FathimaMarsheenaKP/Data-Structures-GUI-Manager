@@ -56,7 +56,7 @@ public class CircularQueue extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\Downloads\\output-onlinepngtools (9).png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\circular.png"));
 		lblNewLabel.setBounds(0, 0, 773, 640);
 		contentPane.add(lblNewLabel);
 		
@@ -112,8 +112,7 @@ public class CircularQueue extends JFrame {
 					textField_ele.setText("");
 				} catch (NumberFormatException ex) {
 					 JOptionPane.showMessageDialog(null, "Please enter valid integers for element.", "Error", JOptionPane.ERROR_MESSAGE);
-				}
-				
+				}	
 			}
 		});
 		
@@ -181,8 +180,16 @@ public class CircularQueue extends JFrame {
 		});
 	}
 	
+	private boolean isNull() {
+		return cqueue == null;
+	}
+	
 	private void createCQueue(int size) {
 		try {
+			if (!isNull()) {
+	            JOptionPane.showMessageDialog(this, "Circular Queue already exists! Please delete the existing circular queue to create a new one.", "Error", JOptionPane.ERROR_MESSAGE);
+	            return;
+	        }
 			size = Integer.parseInt(textField_size.getText().trim());
 			this.size = size;
 			// Validate the size
@@ -208,7 +215,7 @@ public class CircularQueue extends JFrame {
 	}
 	
 	private void enqueue(int element) {
-		if (cqueue == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Circular Queue is not created yet. Please create circular queue first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
@@ -228,7 +235,7 @@ public class CircularQueue extends JFrame {
 	}
 	
 	private void dequeue() {
-		if (cqueue == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Circular Queue is not created yet. Please create circular queue first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
@@ -247,7 +254,7 @@ public class CircularQueue extends JFrame {
 	}
 	
 	private void peek() {
-		if (cqueue == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Circular Queue is not created yet. Please create circular queue first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
@@ -264,7 +271,7 @@ public class CircularQueue extends JFrame {
 	}
 	
 	private void display() {
-		if (cqueue == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Circular Queue is not created yet. Please create circular queue first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }

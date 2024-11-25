@@ -54,7 +54,7 @@ public class Array extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\Downloads\\output-onlinepngtools (2).png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\array.png"));
 		lblNewLabel.setBounds(0, 0, 773, 640);
 		contentPane.add(lblNewLabel);
 		
@@ -195,6 +195,10 @@ public class Array extends JFrame {
 	
 	private void createArray() {
 		try {
+			if (!isNull()) {
+	            JOptionPane.showMessageDialog(this, "Array already exists! Please delete the existing array to create a new one.", "Error", JOptionPane.ERROR_MESSAGE);
+	            return;
+	        }
 			// Get the array size from the text field
 			int size = Integer.parseInt(textField_size.getText().trim());
 			// Validate the size
@@ -212,7 +216,7 @@ public class Array extends JFrame {
 	}
 	
 	private void insertElement(int position, int element) {
-		if (arr == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Array is not created yet. Please create an array first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
@@ -227,12 +231,12 @@ public class Array extends JFrame {
 	}
 	
 	private void deleteElement(int position) {
-		if (arr == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Array is not created yet. Please create an array first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		
-		if (arr.length == 0) {
+		if (isEmpty()) {
 	        JOptionPane.showMessageDialog(this, "Array is empty. Cannot delete elements.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
@@ -248,12 +252,12 @@ public class Array extends JFrame {
 	}
 	
 	private void display(int[] arr) {
-	    if (arr == null) {
+	    if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Array is not created yet. Please create an array first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 
-	    if (arr.length == 0) {
+	    if (isEmpty()) {
 	        JOptionPane.showMessageDialog(this, "Array is empty.", "Info", JOptionPane.INFORMATION_MESSAGE);
 	        return;
 	    }
@@ -280,5 +284,13 @@ public class Array extends JFrame {
 	        // Show the array contents if it's not empty
 	    	textField_display.setText(arrayContent.toString());
 	    }
+	}
+	
+	private boolean isNull() {
+		return arr == null;
+	}
+	
+	private boolean isEmpty() {
+		return arr.length == 0;
 	}
 }

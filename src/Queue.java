@@ -63,7 +63,7 @@ public class Queue extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\Downloads\\output-onlinepngtools (8).png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\queue.png"));
 		lblNewLabel.setBounds(0, 0, 783, 640);
 		contentPane.add(lblNewLabel);
 		
@@ -206,6 +206,10 @@ public class Queue extends JFrame {
 	
 	private void createQueue(int size) {
 		try {
+			if (!isNull()) {
+	            JOptionPane.showMessageDialog(this, "Queue already exists! Please delete the existing queue to create a new one.", "Error", JOptionPane.ERROR_MESSAGE);
+	            return;
+	        }
 			size = Integer.parseInt(textField_size.getText().trim());
 			this.size = size;
 			// Validate the size
@@ -223,12 +227,12 @@ public class Queue extends JFrame {
 	}
 	
 	private void enqueue(int element) {
-		if (queue == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Queue is not created yet. Please create queue first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		
-		if (rear == size - 1) {
+		if (isFull()) {
 			JOptionPane.showMessageDialog(this, "Queue is full!", "Info", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
@@ -239,12 +243,12 @@ public class Queue extends JFrame {
 	}
 	
 	private void dequeue() {
-		if (queue == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Queue is not created yet. Please create queue first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		
-		if (rear == -1 || front == size-1) {
+		if (isEmpty()) {
 	        JOptionPane.showMessageDialog(this, "Queue is empty!", "Info", JOptionPane.INFORMATION_MESSAGE);
 	        return;
 	    }
@@ -256,12 +260,12 @@ public class Queue extends JFrame {
 	
 	private void getElement(int index) {
 		
-		if (queue == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Queue is not created yet. Please create an Queue first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		
-		if (rear == -1 || front == size - 1) {
+		if (isEmpty()) {
 	        JOptionPane.showMessageDialog(this, "Queue is empty!", "Info", JOptionPane.INFORMATION_MESSAGE);
 	        return;
 		}
@@ -278,12 +282,12 @@ public class Queue extends JFrame {
 	
 	private void display() {
 		
-		if (queue == null) {
+		if (isNull()) {
 	        JOptionPane.showMessageDialog(this, "Queue is not created yet. Please create an Queue first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 		
-		if (rear == -1 || front == size - 1) {
+		if (isEmpty()) {
 			textField_display.setText("");
 	        JOptionPane.showMessageDialog(this, "Queue is empty!", "Info", JOptionPane.INFORMATION_MESSAGE);
 	        return;
@@ -295,6 +299,18 @@ public class Queue extends JFrame {
 	    }
 	    textField_display.setText(queueContent.toString());
 		
+	}
+	
+	private boolean isNull() {
+		return queue == null;
+	}
+	
+	private boolean isFull() {
+		return rear == size - 1;
+	}
+	
+	private boolean isEmpty() {
+		return rear == -1 || front == size - 1;
 	}
 
 }

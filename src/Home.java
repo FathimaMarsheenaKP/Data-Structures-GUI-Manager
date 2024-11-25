@@ -49,7 +49,7 @@ public class Home extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\Downloads\\output-onlinepngtools (5).png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\ds.png"));
 		lblNewLabel.setBounds(0, 0, 773, 640);
 		contentPane.add(lblNewLabel);
 		
@@ -84,7 +84,7 @@ public class Home extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				Open the Array window
+//				Open the Stack window
 				Stack stack = new Stack();
 				stack.setVisible(true);
 			}
@@ -98,7 +98,7 @@ public class Home extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				Open the Array window
+//				Open the  queue window
 				Queue queue = new Queue();
 				queue.setVisible(true);
 			}
@@ -114,7 +114,7 @@ public class Home extends JFrame {
 		btnCircularQueue.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				Open the Array window
+//				Open the CircularQueue window
 				CircularQueue circularQueue = new CircularQueue();
 				circularQueue.setVisible(true);
 			}
@@ -127,12 +127,30 @@ public class Home extends JFrame {
 		btnSingleLinkedlist.setVerticalAlignment(SwingConstants.CENTER); 
 		contentPane.add(btnSingleLinkedlist);
 		
+		btnSingleLinkedlist.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				Open the SinglyLinkedList window
+				SinglyLinkedList siList = new SinglyLinkedList();
+				siList.setVisible(true);
+			}
+		});
+		
 		JButton btnDoublyLinkedList = new JButton("<html><div align='center'>Doubly<br>Linked<br>List</div></html>");
 		btnDoublyLinkedList.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnDoublyLinkedList.setBounds(462, 455, 236, 83);
 		btnDoublyLinkedList.setHorizontalAlignment(SwingConstants.CENTER);  // Center horizontally
 		btnDoublyLinkedList.setVerticalAlignment(SwingConstants.CENTER);    // Center vertically
 		contentPane.add(btnDoublyLinkedList);
+		
+		btnDoublyLinkedList.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				Open the DoublyLinkedList window
+				DoublyLinkedList dlist = new DoublyLinkedList();
+				dlist.setVisible(true);
+			}
+		});
 
 	}
 }
