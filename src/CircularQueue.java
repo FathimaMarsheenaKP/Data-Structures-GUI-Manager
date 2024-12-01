@@ -56,7 +56,7 @@ public class CircularQueue extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\circular.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\Image\\Circular.png"));
 		lblNewLabel.setBounds(0, 0, 773, 640);
 		contentPane.add(lblNewLabel);
 		

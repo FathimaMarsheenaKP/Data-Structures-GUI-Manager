@@ -22,6 +22,7 @@ public class SinglyLinkedList extends JFrame {
 	private JTextField textField_display;
 	
 	private Node first;
+	private JTextField textField_reverse;
 
 	/**
 	 * Launch the application.
@@ -65,7 +66,7 @@ public class SinglyLinkedList extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\singly.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\Image\\Singly.png"));
 		lblNewLabel.setBounds(0, 10, 773, 630);
 		contentPane.add(lblNewLabel);
 		
@@ -163,12 +164,12 @@ public class SinglyLinkedList extends JFrame {
 		textField_display = new JTextField();
 		textField_display.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textField_display.setColumns(10);
-		textField_display.setBounds(75, 435, 412, 48);
+		textField_display.setBounds(75, 352, 412, 48);
 		contentPane.add(textField_display);
 		
 		JButton btnDisplay = new JButton("Display");
 		btnDisplay.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnDisplay.setBounds(556, 435, 123, 48);
+		btnDisplay.setBounds(556, 348, 123, 48);
 		contentPane.add(btnDisplay);
 		
 		btnDisplay.addActionListener(new ActionListener() {
@@ -182,6 +183,24 @@ public class SinglyLinkedList extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnNewButton_1.setBounds(353, 542, 107, 48);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnReverse = new JButton("Reverse");
+		btnReverse.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnReverse.setBounds(556, 454, 123, 48);
+		contentPane.add(btnReverse);
+		
+		textField_reverse = new JTextField();
+		textField_reverse.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textField_reverse.setColumns(10);
+		textField_reverse.setBounds(75, 454, 412, 48);
+		contentPane.add(textField_reverse);
+		
+		btnReverse.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				reverse();
+			}
+		});
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override
@@ -272,5 +291,37 @@ public class SinglyLinkedList extends JFrame {
 		    
 		    // Set the text of textField_display to show the linked list
 		    textField_display.setText(listContent.toString());
+	}
+	
+	private void reverse() {
+		if (first == null) {
+		    textField_reverse.setText("");
+	        JOptionPane.showMessageDialog(this, "Linked list is empty!", "Error", JOptionPane.ERROR_MESSAGE);
+	        return;
+	    }
+		
+		Node previous = null;
+	    Node current = first;
+	    Node next = null;
+	    
+	    while (current != null) {
+	        next = current.nextLink; // Store the next node
+	        current.nextLink = previous; // Reverse the current node's pointer
+	        previous = current; // Move the previous pointer forward
+	        current = next; // Move the current pointer forward
+	    }
+	    
+	    first = previous; // Update the head to the new first node
+	    
+	    Node temp = first;
+	    StringBuilder reversedListContent = new StringBuilder();
+	    
+	    while (temp != null) {
+	        reversedListContent.append(temp.data).append(" -> "); // Add each node's data
+	        temp = temp.nextLink; // Move to the next node
+	    }
+	    reversedListContent.append("null"); // End of the list
+
+	    textField_reverse.setText(reversedListContent.toString());
 	}
 }

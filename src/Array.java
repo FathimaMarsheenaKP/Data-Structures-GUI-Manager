@@ -54,7 +54,7 @@ public class Array extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\array.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\Image\\Array.png"));
 		lblNewLabel.setBounds(0, 0, 773, 640);
 		contentPane.add(lblNewLabel);
 		
@@ -235,7 +235,7 @@ public class Array extends JFrame {
 	        JOptionPane.showMessageDialog(this, "Array is not created yet. Please create an array first.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
-		
+
 		if (isEmpty()) {
 	        JOptionPane.showMessageDialog(this, "Array is empty. Cannot delete elements.", "Error", JOptionPane.ERROR_MESSAGE);
 	        return;
@@ -246,8 +246,9 @@ public class Array extends JFrame {
 	        return;
 	    }
 		
-		JOptionPane.showMessageDialog(this, "Element at position " + position + " deleted successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
 		arr[position] = 0;
+		JOptionPane.showMessageDialog(this, "Element at position " + position + " deleted successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+		
 		
 	}
 	
@@ -291,6 +292,11 @@ public class Array extends JFrame {
 	}
 	
 	private boolean isEmpty() {
-		return arr.length == 0;
+	    for (int value : arr) {
+	        if (value != 0) { // Assuming 0 represents an empty value
+	            return false; // Found a non-empty element
+	        }
+	    }
+	    return true; // All elements are empty
 	}
 }

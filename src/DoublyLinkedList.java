@@ -67,7 +67,7 @@ public class DoublyLinkedList extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\doubly.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\fathi\\OneDrive\\Desktop\\Kodnest\\Java\\DSAImplementation\\Image\\Doubly.png"));
 		lblNewLabel.setBounds(0, 0, 773, 640);
 		contentPane.add(lblNewLabel);
 		
@@ -310,11 +310,12 @@ public class DoublyLinkedList extends JFrame {
 			temp = temp.nextLink;
 		}
 		
-		reverseListContent.append("null");
+		
 		while (temp != null) {
-			reverseListContent.append(" -> ").append(temp.data);
+			reverseListContent.append(temp.data).append(" -> ");
 			temp = temp.preLink;
 		}
+		reverseListContent.append("null");
 		textField_2.setText(reverseListContent.toString());
 
 	}
