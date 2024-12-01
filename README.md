@@ -62,7 +62,6 @@ This Java-based project provides a graphical user interface (GUI) to visualize a
 ## Technologies Used
 - **Java**: The core language used to implement the data structures and GUI.
 - **Java Swing**: Used for the graphical user interface to interact with data structures.
-- **Collections Framework**: Some operations use Java’s built-in collections to simplify the implementation.
 
 ## Installation Instructions
 
